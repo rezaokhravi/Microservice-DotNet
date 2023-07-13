@@ -1,0 +1,3 @@
+[submodule "Services/Catalog/Catalog.Api"]
+	path = Services/Catalog/Catalog.Api
+	url = https://github.com/rezaokhravi/Catalog.Api.git
