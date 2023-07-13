@@ -28,7 +28,6 @@ services:
       # - Default
     # depends_on:
       # - mongo
-
 networks:
   Default:
     name: microservices
