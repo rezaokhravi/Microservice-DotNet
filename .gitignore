@@ -3,4 +3,8 @@ obj/
 .idea/
 .vs/
 .vscode/
+docker/
+
+# But not these files...
+!docker-compose.yml
 
