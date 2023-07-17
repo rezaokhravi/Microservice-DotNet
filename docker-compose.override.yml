@@ -18,7 +18,8 @@ services:
   catalog-api:
     container_name: catalog-api 
     environment:
-      - "ASPNETCORE_ENVIRONMENT=Development"
+      - ASPNETCORE_ENVIRONMENT=Development
+      #- ASPNETCORE_URLS=https://+:443;http://+:80
       - "DatabaseStrings:ConnectionString=mongodb://admin:admin@catalog-db:27017/name?authSource=admin"
     depends_on:
       - catalog-db
@@ -26,7 +27,10 @@ services:
       - "8000:80"
     networks:
       - Default
-
+    # volumes:
+      # - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      # - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      
 networks:
   Default:
     name: microservices
