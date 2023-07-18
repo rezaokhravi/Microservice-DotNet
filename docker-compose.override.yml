@@ -1,6 +1,7 @@
 version: '3.9'
 
 services:
+
   catalog-db:
     container_name: catalog-db
     restart: unless-stopped
@@ -12,6 +13,16 @@ services:
       - ./docker/mongodb/config:/data/configdb
     ports:
       - "27017:27017"
+    networks:
+      - Default
+
+  basket-db:
+    container_name: basket-db
+    restart: unless-stopped
+    ports:
+      - "6379:6379" 
+    volumes:
+      - ./docker/redisdb/data:/data
     networks:
       - Default
 
@@ -31,6 +42,19 @@ services:
       # - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       # - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
       
+  basket-api:
+    container_name: basket-api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "CacheSettings:ConnectionString=basket-db:6379"
+    depends_on:
+      - basket-db
+    ports:
+      - "8001:80"
+    networks:
+      - Default
+
 networks:
   Default:
     name: microservices
+
