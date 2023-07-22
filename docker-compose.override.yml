@@ -26,6 +26,16 @@ services:
     networks:
       - Default
 
+  portainer:
+    container_name: protainer
+    restart: always
+    ports:
+     - "8080:8000"
+     - "9090:9000"
+    volumes:
+     - /var/run/docker.sock:/var/run/docker.sock
+     - ./docker/protainer/data:/data
+
   catalog-api:
     container_name: catalog-api 
     environment:

@@ -8,6 +8,9 @@ services:
   basket-db:
     image: redis:6.0.20-alpine
 
+  portainer:
+    image: portainer/portainer
+
   catalog-api:
     image: ${DOCKER_REGISTRY-}catalogapi
     build:
