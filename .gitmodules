@@ -4,3 +4,6 @@
 [submodule "Services/Basket/Basket.Api"]
 	path = Services/Basket/Basket.Api
 	url = https://github.com/rezaokhravi/Basket.Api.git
+[submodule "Services/Discount/Discount.Api"]
+	path = Services/Discount/Discount.Api
+	url = https://github.com/rezaokhravi/Discount.Api.git

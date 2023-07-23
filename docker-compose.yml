@@ -8,6 +8,12 @@ services:
   basket-db:
     image: redis:6.0.20-alpine
 
+  discount-db:
+    image: postgres
+
+  pgadmin:
+    image: dpage/pgadmin4
+
   portainer:
     image: portainer/portainer
 
